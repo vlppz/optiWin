@@ -1,0 +1,7 @@
+---
+title: Remove defender
+privilege: TrustedInstaller
+
+actions:
+  - !writeStatus: {status: 'Removing defender'}
+  - !run: {exeDir: true, exe: 'REMOVEDEF.cmd', option: 'defender-disable'}

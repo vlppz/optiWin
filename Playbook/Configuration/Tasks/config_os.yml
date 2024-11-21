@@ -1,0 +1,15 @@
+---
+title: Remove bloatware
+privilege: TrustedInstaller
+
+actions:
+  - !writeStatus: {status: 'Finishing'}
+
+  - !powerShell:
+    command: |
+      bcdedit /set description """OptiWin $(('10', '11')[[int]([System.Environment]::OSVersion.Version.Build -ge 22000)])"""
+
+      $reportedVer = """OptiWin $(('10', '11')[[int]([System.Environment]::OSVersion.Version.Build -ge 22000)])"""
+      Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -Value $reportedVer -Force
+      Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name 'RegisteredOrganization' -Value $reportedVer -Force
+    wait: true
