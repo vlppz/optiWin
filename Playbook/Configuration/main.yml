@@ -6,6 +6,7 @@ actions:
   - !task: {path: 'Tasks\remove_telemetry.yml'}
   - !task: {path: 'Tasks\remove_bloat.yml'}
   - !task: {path: 'Tasks\services.yml'}
+  - !task: {path: 'Tasks\optimize.yml'}
   - !task: {path: 'Tasks\qol_fixes.yml'}
   - !task: {path: 'Tasks\remove_def.yml'}
   - !task: {path: 'Tasks\config_os.yml'}

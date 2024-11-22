@@ -1,0 +1,47 @@
+---
+title: Remove bloatware
+privilege: TrustedInstaller
+
+actions:
+  - !writeStatus: {status: 'Optimizing'}
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
+    value: 'GlobalUserDisabled'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
+    value: 'BackgroundAppGlobalToggle'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    value: 'SystemResponsiveness'
+    data: '10'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'DisablePagingExecutive'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'DisablePageCombining'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control'
+    value: 'SvcHostSplitThresholdInKB'
+    data: '67108864'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl'
+    value: 'Win32PrioritySeparation'
+    data: '38'
+    type: REG_DWORD
+  
