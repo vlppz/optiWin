@@ -81,8 +81,6 @@ actions:
   - !registryValue: {path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search', value: 'EnableDynamicContentInWSB', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings', value: 'IsDynamicSearchBoxEnabled', type: REG_DWORD, data: '0'}
 
-
-
   - !writeStatus: {status: 'Clearing AppX caches'}
   - !appx: {operation: clearCache, name: '*MicrosoftWindows.Client.CBS*'}
   - !appx: {operation: clearCache, name: '*Microsoft.Windows.Search*'}
